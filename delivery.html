@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>Your AgotheOutput download</title><link rel="stylesheet" href="styles.css"></head>
+<body><main style="max-width:760px;margin:9vh auto;padding:32px">
+<p class="eyebrow">PAYMENT COMPLETE / DELIVERY</p><h1 style="font-size:clamp(3rem,8vw,6rem)">Your file is ready.</h1>
+<div class="note" style="margin-top:36px">
+<h3 id="product">Loading purchase…</h3>
+<p>1. Download the encrypted archive.<br>2. Copy the password below.<br>3. Open the archive with an AES-compatible ZIP tool and enter the password.</p>
+<p><a id="download" class="buy" href="#">Download encrypted archive</a></p>
+<p style="margin-top:28px">Archive password</p>
+<div style="display:flex;gap:10px;align-items:center"><code id="key" style="font-size:1.05rem;padding:14px;border:1px solid var(--line);background:#fff;border-radius:10px;word-break:break-all"></code>
+<button id="copy" class="buy" style="border:0;cursor:pointer">Copy</button></div>
+<p style="font-size:.85rem;color:#756e69;margin-top:28px">Keep this password with your Stripe receipt. AgotheOutput does not place the password in the public product repository.</p>
+</div></main>
+<script>
+const catalog={"AOT-ETSY-001": {"name": "Minimal Boutique Logo Starter Kit", "url": "https://github.com/gtsgob/agotheoutput-store/releases/download/delivery-v1/agotheoutput_logo_starter_kit.aes.zip", "asset": "agotheoutput_logo_starter_kit.aes.zip"}, "AOT-ETSY-004": {"name": "Cute Food & Drink Clipart 80-Pack", "url": "https://github.com/gtsgob/agotheoutput-store/releases/download/delivery-v1/agotheoutput_food_clipart_80.aes.zip", "asset": "agotheoutput_food_clipart_80.aes.zip"}, "AOT-ETSY-005": {"name": "40 Neutral Seamless Digital Papers", "url": "https://github.com/gtsgob/agotheoutput-store/releases/download/delivery-v1/agotheoutput_neutral_digital_papers_40.aes.zip", "asset": "agotheoutput_neutral_digital_papers_40.aes.zip"}, "AOT-GAME-001": {"name": "200 Fantasy RPG Inventory Icons", "url": "https://github.com/gtsgob/agotheoutput-store/releases/download/delivery-v1/agotheoutput_fantasy_rpg_icons_200.aes.zip", "asset": "agotheoutput_fantasy_rpg_icons_200.aes.zip"}};
+const sku=new URLSearchParams(location.search).get('sku');
+const key=decodeURIComponent((location.hash||'').replace(/^#k=/,''));
+const item=catalog[sku];
+if(item){
+ document.getElementById('product').textContent=item.name;
+ document.getElementById('download').href=item.url;
+ document.getElementById('key').textContent=key||'Password missing. Contact seller with your Stripe receipt.';
+} else {
+ document.getElementById('product').textContent='Delivery link not recognized';
+ document.getElementById('download').style.display='none';
+}
+document.getElementById('copy').onclick=()=>navigator.clipboard.writeText(document.getElementById('key').textContent);
+</script></body></html>
