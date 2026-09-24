@@ -40,5 +40,9 @@
     const sku = card ? card.dataset.sku : "unknown";
     link.addEventListener("pointerdown", () => hit("checkout-click", sku), { passive: true });
   });
+  document.querySelectorAll('a[data-sampler="true"]').forEach(link => {
+    const sku = link.dataset.sku || "unknown";
+    link.addEventListener("pointerdown", () => hit("sampler-click", sku), { passive: true });
+  });
   window.AGOTHEOUTPUT_ATTRIBUTION = Object.freeze({ campaign, source });
 })();
