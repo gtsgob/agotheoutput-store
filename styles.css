@@ -32,3 +32,7 @@ a{color:inherit}.site-header{height:76px;padding:0 clamp(20px,5vw,76px);display:
   .section-heading h2,.delivery h2,.system-note h2{font-size:3.2rem}.site-footer{padding:26px 18px 40px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.product-media img,.button{transition:none}}
+
+.quality-banner{margin:0;padding:34px clamp(20px,7vw,108px);border-bottom:1px solid var(--line);background:#efe8dc}
+.quality-banner .eyebrow{margin-bottom:10px}.quality-banner h2{font-size:clamp(1.8rem,3vw,3rem);letter-spacing:-.045em;margin:0 0 10px}.quality-banner p:last-child{max-width:850px;color:var(--muted);line-height:1.6;margin:0}
+.button-muted{background:#d9d1c7;color:#6e665f;cursor:not-allowed;pointer-events:none}
